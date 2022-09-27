@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+.JogoLista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 25px 50px;
+}
+
+@media (max-width: 1220px) {
+  .JogoLista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 840px) {
+  .JogoLista {
+    grid-template-columns: 1fr;
+  }
+}
+
+.JogoListaItem {
+  font-family: "Oswald";
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  padding: 8px;
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (max-width: 400px) {
+  .JogoListaItem {
+    width: 210px;
+    height: 180px;
+  }
+}
+
+.JogoListaItem > div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.JogoListaItem__titulo {
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+.JogoListaItem__descricao {
+  font-size: 0.8em;
+  text-align: justify;
+}
+
+.JogoListaItem__preco {
+  color: #f8575f;
+}
+
+.Acoes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Acoes__adicionar,
+.Acoes__remover {
+  border: none;
+  color: white;
+  border-radius: 2px;
+  font-family: "Oswald", sans-serif;
+  padding: 5px;
+  max-width: 280px;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 48%;
+}
+
+.Acoes__remover {
+  background-color: red;
+}
+
+.Acoes__adicionar {
+  background-color: #c31e87;
+}
+
+.Acoes__adicionar--preencher {
+  width: 100%;
+}
+
+.JogoListaItem__foto {
+  display: flex;
+  height: 200px;
+  width: 200px;
+  justify-content: center;
+}
+.JogoListaItem__genero {
+  color: #E64246;
+  font-size: 0.7em;
+  text-align: right;
+
+}
+.JogoListaItem__distribuidora{
+    color: black;
+    font-size: 0.7em;
+    text-align: right;
+}

@@ -1,14 +1,25 @@
 .Home {
-    position: relative;
-    background-image: radial-gradient(
-      farthest-corner at 35px 35px,
-      #442686 60%,
-      #6A3E7B 100%
-    );
-    min-height: calc(100vh - 50px);
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  background-image: radial-gradient(
+    farthest-corner at 35px 35px,
+    #442686 60%,
+    #6a3e7b 100%
+  );
+  min-height: calc(100vh - 50px);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+.Home__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 350px) {
+  .Home__container {
+    justify-content: unset;
   }
+}
