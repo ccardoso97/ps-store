@@ -53,4 +53,22 @@ export const jogos = [
     genero: "Soulslike/RPG",
     distribuidora: "From Software",
   },
+  {
+    titulo: "FIFA 23",
+    descricao:
+      "FIFA 23 proporciona ainda mais ação e realismo do futebol aos campos do Jogo de Todo Mundo.",
+    foto: require("../assets/images/fifa-23.jpg"),
+    preco: 338.90,
+    genero: "Esportes/Futebol",
+    distribuidora: "EA Sports",
+  },
+  {
+    titulo: "Elden Ring",
+    descricao:
+      "Levante-se, Maculado, e seja guiado pela graça para portar o poder do Anel Prístino e se tornar um Lorde Prístino nas Terras Intermédias.",
+    foto: require("../assets/images/elden-ring.jpg"),
+    preco: 338.90,
+    genero: "Soulslike/RPG",
+    distribuidora: "From Software",
+  },
 ]

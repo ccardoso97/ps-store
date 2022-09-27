@@ -8,7 +8,7 @@ function JogoLista() {
         <div className="JogoListaItem">
           <div>
             <div className="JogoListaItem__titulo">{jogo.titulo}</div>
-            <div className="JogoListaItem__preco">{jogo.preco.toFixed(2)}</div>
+            <div className="JogoListaItem__preco">R${jogo.preco.toFixed(2)}</div>
             <img
               className="JogoListaItem__foto"
               src={jogo.foto}
