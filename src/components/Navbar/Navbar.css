@@ -1,28 +1,3 @@
-.Home {
-  position: relative;
-  background-image: radial-gradient(
-    farthest-corner at 35px 35px,
-    #442686 60%,
-    #6a3e7b 100%
-  );
-  min-height: calc(100vh - 50px);
-  margin: 5px;
-  padding: 5px;
-  border-radius: 2px;
-  color: white;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-}
-.Home__container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@media (max-width: 350px) {
-  .Home__container {
-    justify-content: unset;
-  }
-}
 .Header {
   max-width: 1110px;
   margin: 0 auto 25px auto;
@@ -40,16 +15,16 @@
   display: flex;
   align-items: center;
   border-radius: 3px;
-  width: 40px;
-  height: 40px;
+  width: 0px;
+  height: 100px;
   cursor: pointer;
 }
 .Logo__icone {
-  width: 120px;
-  height: 86px;
-  position: absolute;
-  left: 493px;
-  top: -15px;
+  width: 350px;
+  height: 150px;
+  position: relative;
+  left: 455px;
+  top: 10px;
 }
 
 .Sacola {
@@ -62,8 +37,8 @@
 
 .Sacola__badge {
   background-color: red;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   text-align: center;
   vertical-align: middle;
   position: absolute;

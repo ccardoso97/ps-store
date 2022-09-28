@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+.JogoLista {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 25px 50px;
+}
+
+@media (max-width: 1220px) {
+  .JogoLista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 840px) {
+  .JogoLista {
+    grid-template-columns: 1fr;
+  }
+}
+

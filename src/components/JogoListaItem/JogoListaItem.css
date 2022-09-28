@@ -1,23 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
-
-.JogoLista {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 25px 50px;
-}
-
-@media (max-width: 1220px) {
-  .JogoLista {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 840px) {
-  .JogoLista {
-    grid-template-columns: 1fr;
-  }
-}
-
 .JogoListaItem {
   font-family: "Oswald";
   background: rgba(255, 255, 255, 0.3);
@@ -84,7 +64,7 @@
 }
 
 .Acoes__remover {
-  background-color: red;
+  background-color: rgb(221, 70, 0);
 }
 
 .Acoes__adicionar {
@@ -111,14 +91,14 @@
   text-align: right;
 }
 .JogoListaItem__badge {
-  background-color:  #5774B8;
+  background-color: #5774b8;
   width: 15px;
   height: 15px;
   text-align: center;
   vertical-align: middle;
   position: relative;
   color: #550875;
-  font-size: .7em;
+  font-size: 0.7em;
   font-weight: bold;
   display: flex;
   justify-content: center;
