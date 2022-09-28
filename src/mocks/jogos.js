@@ -31,7 +31,7 @@ export const jogos = [
     descricao:
       "Viva novamente a história de Goku e outros Guerreiros Z em Dragon Ball Z: KAKAROT! Além das batalhas épicas, sinta como é a vida no mundo de Dragon Ball Z.",
     foto: require("../assets/images/dbz-kakarot.jpg"),
-    preco: 249.90,
+    preco: 249.9,
     genero: "Luta/RPG",
     distribuidora: "Bandai Namco",
   },
@@ -40,7 +40,7 @@ export const jogos = [
     descricao:
       "FIFA 23 proporciona ainda mais ação e realismo do futebol aos campos do Jogo de Todo Mundo.",
     foto: require("../assets/images/fifa-23.jpg"),
-    preco: 338.90,
+    preco: 338.9,
     genero: "Esportes/Futebol",
     distribuidora: "EA Sports",
   },
@@ -49,16 +49,16 @@ export const jogos = [
     descricao:
       "Levante-se, Maculado, e seja guiado pela graça para portar o poder do Anel Prístino e se tornar um Lorde Prístino nas Terras Intermédias.",
     foto: require("../assets/images/elden-ring.jpg"),
-    preco: 338.90,
+    preco: 338.9,
     genero: "Soulslike/RPG",
     distribuidora: "From Software",
   },
   {
     titulo: "FIFA 23",
     descricao:
-      "FIFA 23 proporciona ainda mais ação e realismo do futebol aos campos do Jogo de Todo Mundo.",
+      "FIFA 23 proporciona ainda mais ação e realismo do futebol aos campos do Jogo de Todo Mundo. Aaa aaassadas asdasdqw asd qw qw eqwasdasd qw asd qwe",
     foto: require("../assets/images/fifa-23.jpg"),
-    preco: 338.90,
+    preco: 338.9,
     genero: "Esportes/Futebol",
     distribuidora: "EA Sports",
   },
@@ -67,8 +67,8 @@ export const jogos = [
     descricao:
       "Levante-se, Maculado, e seja guiado pela graça para portar o poder do Anel Prístino e se tornar um Lorde Prístino nas Terras Intermédias.",
     foto: require("../assets/images/elden-ring.jpg"),
-    preco: 338.90,
+    preco: 338.9,
     genero: "Soulslike/RPG",
     distribuidora: "From Software",
   },
-]
+];
