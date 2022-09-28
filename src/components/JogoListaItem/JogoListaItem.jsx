@@ -1,8 +1,7 @@
 import "./JogoListaItem.css";
 
-function JogoListaItem({jogo, quantidadeSelecionada, index}) {
-  const removerItem = (i) => console.log("remover" + i);
-  const adicionarItem = (i) => console.log("adicionar" + i);
+function JogoListaItem({jogo, quantidadeSelecionada, index, onRemove, onAdd}) {
+ 
   const badgeCounter = (canRender, index) =>
     Boolean(canRender) && (
       <span className="JogoListaItem__badge"> {quantidadeSelecionada} </span>
@@ -10,7 +9,7 @@ function JogoListaItem({jogo, quantidadeSelecionada, index}) {
 
   const removeButton = (canRender, index) =>
     Boolean(canRender) && (
-      <button className="Acoes__remover" onClick={() => removerItem(index)}>
+      <button className="Acoes__remover" onClick={() => onRemove(index)}>
         remover
       </button>
     );
@@ -34,7 +33,7 @@ function JogoListaItem({jogo, quantidadeSelecionada, index}) {
             className={`Acoes__adicionar ${
               !quantidadeSelecionada && "Acoes__adicionar--preencher"
             }`}
-            onClick={() => adicionarItem(index)}
+            onClick={() => onAdd(index)}
           >
             Adicionar
           </button>

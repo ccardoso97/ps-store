@@ -24,6 +24,8 @@ function JogoLista() {
           jogo={jogo}
           quantidadeSelecionada={jogoSelecionado[index]}
           index={index}
+          onRemove={index => removerItem(index)}
+          onAdd={index => adicionarItem(index)}
         />
       ))}
     </div>
