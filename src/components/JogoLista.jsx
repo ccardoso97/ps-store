@@ -1,7 +1,14 @@
 import { jogos } from "../mocks/jogos.js";
 import "./JogoLista.css";
+import { useState } from "react";
 
 function JogoLista() {
+  const [jogoSelecionado, setjogoSelecionado] = useState({});
+
+  const adicionarItem = (jogoIndex) => {
+    const jogo = { [jogoIndex]: Number(jogoSelecionado[jogoIndex] || 0) + 1 };
+    setjogoSelecionado({ ...jogoSelecionado, ...jogo });
+  };
   return (
     <div className="JogoLista">
       {jogos.map((jogo, index) => (
@@ -21,8 +28,12 @@ function JogoLista() {
             <div className="JogoListaItem__distribuidora">
               {jogo.distribuidora}
             </div>
+            <span className="JogoListaItem__badge"> {jogoSelecionado[index] || 0} </span>
             <div className="JogoListaItem__acoes Acoes">
-              <button className="Acoes__adicionar Acoes__adicionar--preencher">
+              <button
+                className="Acoes__adicionar Acoes__adicionar--preencher"
+                onClick={() => adicionarItem(index)}
+              >
                 Adicionar
               </button>
             </div>
