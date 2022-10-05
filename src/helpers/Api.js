@@ -8,6 +8,6 @@ const JogoContext = {
   };
   
   export const Api = {
-    baseUrl: "https://api-pstore-caio.herokuapp.com",
+    baseUrl: "http://localhost:3001/jogos",
     ...JogoContext,
   };

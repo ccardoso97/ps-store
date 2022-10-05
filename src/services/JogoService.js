@@ -6,7 +6,7 @@ export const JogoService = {
   getLista: () =>
     fetch(Api.jogoLista(), { method: "GET" }).then(parseResponse),
   getById: (id) =>
-    fetch(Api.jogoById(id), { method: "GET" }).then(parseResponse),
+    fetch(Api.jogoByID(id), { method: "GET" }).then(parseResponse),
   create: () =>
     fetch(Api.createJogo(), { method: "POST" }).then(parseResponse),
   updateById: (id) =>

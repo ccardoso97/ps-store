@@ -1,5 +1,3 @@
-
-import "./JogoLista.css";
 import { JogoService } from "services/JogoService";
 import { useState, useEffect } from "react";
 import JogoListaItem from "components/JogoListaItem/JogoListaItem";
