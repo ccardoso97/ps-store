@@ -1,9 +1,12 @@
-import { jogos } from "mocks/jogos.js";
+
 import "./JogoLista.css";
-import { useState } from "react";
+import { JogoService } from "services/JogoService";
+import { useState, useEffect } from "react";
 import JogoListaItem from "components/JogoListaItem/JogoListaItem";
 
 function JogoLista() {
+  const [jogos, setJogos] = useState([]);
+
   const [jogoSelecionado, setjogoSelecionado] = useState({});
 
   const adicionarItem = (jogoIndex) => {
@@ -16,6 +19,15 @@ function JogoLista() {
     setjogoSelecionado({ ...jogoSelecionado, ...jogo });
   };
 
+  const getLista = async () => {
+    const response = await JogoService.getLista();
+    setJogos(response);
+  };
+  
+  useEffect(() => {
+    getLista();
+  }, []);
+
   return (
     <div className="JogoLista">
       {jogos.map((jogo, index) => (
@@ -24,8 +36,8 @@ function JogoLista() {
           jogo={jogo}
           quantidadeSelecionada={jogoSelecionado[index]}
           index={index}
-          onRemove={index => removerItem(index)}
-          onAdd={index => adicionarItem(index)}
+          onRemove={(index) => removerItem(index)}
+          onAdd={(index) => adicionarItem(index)}
         />
       ))}
     </div>

@@ -1,7 +1,12 @@
 import "./JogoListaItem.css";
 
-function JogoListaItem({jogo, quantidadeSelecionada, index, onRemove, onAdd}) {
- 
+function JogoListaItem({
+  jogo,
+  quantidadeSelecionada,
+  index,
+  onRemove,
+  onAdd,
+}) {
   const badgeCounter = (canRender, index) =>
     Boolean(canRender) && (
       <span className="JogoListaItem__badge"> {quantidadeSelecionada} </span>
