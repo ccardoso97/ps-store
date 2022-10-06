@@ -1,8 +1,7 @@
 import "./AdicionaJogoModal.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "components/Modal/Modal";
 import { JogoService } from "services/JogoService";
-
 
 function AdicionaJogoModal({ closeModal, onCreateJogo }) {
   const form = {
@@ -13,31 +12,48 @@ function AdicionaJogoModal({ closeModal, onCreateJogo }) {
     distribuidora: "",
     preco: "",
   };
-
   const [state, setState] = useState(form);
 
   const handleChange = (e, name) => {
     setState({ ...state, [name]: e.target.value });
   };
+
+  const [canDisable, setCanDisable] = useState(true);
+
+  const canDisableSendButton = () => {
+    const response = !Boolean(
+      state.titulo.length &&
+        state.genero.length &&
+        state.descricao.length &&
+        state.foto.length &&
+        state.distribuidora.length &&
+        state.preco.length
+    );
+
+    setCanDisable(response);
+  };
+  useEffect(() => {
+    canDisableSendButton();
+  });
+
   const createJogo = async () => {
-    const renomeiaCaminhoFoto = (fotoPath) => fotoPath.split('\\').pop();
+    const renomeiaCaminhoFoto = (fotoPath) => fotoPath.split("\\").pop();
 
     const { titulo, descricao, preco, foto, genero, distribuidora } = state;
 
-
     const jogo = {
-        titulo,
-        descricao,
-        preco,
-        foto: `assets/images/${renomeiaCaminhoFoto(foto)}`,
-        genero,
-        distribuidora
-    }
+      titulo,
+      descricao,
+      preco,
+      foto: `assets/images/${renomeiaCaminhoFoto(foto)}`,
+      genero,
+      distribuidora,
+    };
 
     const response = await JogoService.create(jogo);
     onCreateJogo(response);
     closeModal();
-}
+  };
 
   return (
     <Modal closeModal={closeModal}>
@@ -47,7 +63,7 @@ function AdicionaJogoModal({ closeModal, onCreateJogo }) {
           <div>
             <label className="AdicionaJogoModal__text" htmlFor="preco">
               {" "}
-              Preço: {" "}
+              Preço:{" "}
             </label>
             <input
               id="preco"
@@ -55,25 +71,27 @@ function AdicionaJogoModal({ closeModal, onCreateJogo }) {
               type="text"
               value={state.preco}
               onChange={(e) => handleChange(e, "preco")}
+              required
             />
           </div>
           <div>
             <label className="AdicionaJogoModal__text" htmlFor="titulo">
               {" "}
-              Título: {" "}
+              Título:{" "}
             </label>
             <input
               id="titulo"
               placeholder="Titulo"
               type="text"
               value={state.titulo}
-              onChange={(e) => handleChange(e, "sabor")}
+              onChange={(e) => handleChange(e, "titulo")}
+              required
             />
           </div>
           <div>
             <label className="AdicionaJogoModal__text" htmlFor="genero">
               {" "}
-              Gênero: {" "}
+              Gênero:{" "}
             </label>
             <input
               id="genero"
@@ -81,12 +99,13 @@ function AdicionaJogoModal({ closeModal, onCreateJogo }) {
               type="text"
               value={state.genero}
               onChange={(e) => handleChange(e, "genero")}
+              required
             />
           </div>
           <div>
             <label className="AdicionaJogoModal__text" htmlFor="descricao">
               {" "}
-              Descrição: {" "}
+              Descrição:{" "}
             </label>
             <input
               id="descricao"
@@ -94,12 +113,13 @@ function AdicionaJogoModal({ closeModal, onCreateJogo }) {
               type="text"
               value={state.descricao}
               onChange={(e) => handleChange(e, "descricao")}
+              required
             />
           </div>
           <div>
             <label className="AdicionaJogoModal__text" htmlFor="distribuidora">
               {" "}
-              Distribuidora: {" "}
+              Distribuidora:{" "}
             </label>
             <input
               id="distribuidora"
@@ -107,6 +127,7 @@ function AdicionaJogoModal({ closeModal, onCreateJogo }) {
               type="text"
               value={state.distribuidora}
               onChange={(e) => handleChange(e, "distribuidora")}
+              required
             />
           </div>
           <div>
@@ -123,18 +144,18 @@ function AdicionaJogoModal({ closeModal, onCreateJogo }) {
               accept="image/png, image/gif, image/jpeg"
               value={state.foto}
               onChange={(e) => handleChange(e, "foto")}
+              required
             />
           </div>
-          
 
           <button
             className="AdicionaJogoModal__enviar"
             type="button"
-            disabled="{canDisable}"
-            onClick="{createJogo}"
+            disabled={canDisable}
+            onClick={createJogo}
           >
             Enviar
-            </button>
+          </button>
         </form>
       </div>
     </Modal>

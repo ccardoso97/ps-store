@@ -4,7 +4,7 @@ import JogoListaItem from "components/JogoListaItem/JogoListaItem";
 import "../JogoLista/JogoLista.css";
 import JogoDetalhesModal from "components/JogoDetalhesModal/JogoDetalhesModal";
 
-function JogoLista(jogoCriada ) {
+function JogoLista(jogoCriado) {
   const [jogoModal, setJogoModal] = useState(false);
 
   const [jogos, setJogos] = useState([]);
@@ -26,18 +26,11 @@ function JogoLista(jogoCriada ) {
     setJogos(response);
   };
 
-  const adicionaJogoNaLista = (jogo) => {
-    const lista = [...jogos, jogo];
-    setJogos(lista);
-};
-
-useEffect(() => {
-    if (jogoCriada) adicionaJogoNaLista(jogoCriada);
-}, [jogoCriada]);
-
   useEffect(() => {
     getLista();
   }, []);
+
+
 
   return (
     <div className="JogoLista">

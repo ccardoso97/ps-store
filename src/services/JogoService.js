@@ -17,7 +17,7 @@ export const JogoService = {
   getLista: () => fetch(Api.jogoLista(), { method: "GET" }).then(parseResponse),
   getById: (id) =>
     fetch(Api.jogoById(id), { method: "GET" }).then(parseTransformItem),
-  create: (paleta) => fetch(Api.createPaleta(), { method: "POST", body: JSON.stringify(paleta), mode: "cors", headers: {
+  create: (jogo) => fetch(Api.createPaleta(), { method: "POST", body: JSON.stringify(jogo), mode: "cors", headers: {
     "Content-Type": "application/json",
   } }).then(parseTransformItem),
   updateById: (id) =>
