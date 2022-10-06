@@ -9,6 +9,9 @@
   justify-content: space-between;
   flex-direction: column;
 }
+.JogoListaItem:hover {
+  transform: scale(1.1) 
+}
 
 @media (max-width: 400px) {
   .JogoListaItem {
@@ -106,4 +109,7 @@
   border-radius: 0;
   right: -9px;
   top: -9px;
+}
+.JogoListaItem {
+  cursor: pointer;
 }

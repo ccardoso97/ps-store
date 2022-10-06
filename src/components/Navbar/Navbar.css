@@ -64,12 +64,29 @@
   }
 }
 
+
 @media (max-width: 400px) {
   .Header {
     max-width: 250px;
   }
 
   .row {
-    column-gap: 20px;
+    column-gap: 10px;
   }
+}
+.Logo {
+  width: 20px;
+}
+.Opcoes {
+  display: flex;
+}
+
+.Plus {
+  background: none;
+  border: none;
+  display: flex;
+}
+
+.Plus__icone {
+  cursor: pointer;
 }

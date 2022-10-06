@@ -2,9 +2,10 @@
 
 .JogoLista {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 25px 50px;
 }
+
 
 @media (max-width: 1220px) {
   .JogoLista {

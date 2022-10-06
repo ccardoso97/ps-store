@@ -2,13 +2,24 @@ import { Api } from "helpers/Api";
 
 const parseResponse = (response) => response.json();
 
+const transformJogo = (jogo) => {
+  return {
+    ...jogo,
+    id: jogo._id,
+    titulo: jogo.titulo,
+  };
+};
+
+const parseTransformItem = (response) =>
+  parseResponse(response).then(transformJogo);
+
 export const JogoService = {
-  getLista: () =>
-    fetch(Api.jogoLista(), { method: "GET" }).then(parseResponse),
+  getLista: () => fetch(Api.jogoLista(), { method: "GET" }).then(parseResponse),
   getById: (id) =>
-    fetch(Api.jogoByID(id), { method: "GET" }).then(parseResponse),
-  create: () =>
-    fetch(Api.createJogo(), { method: "POST" }).then(parseResponse),
+    fetch(Api.jogoById(id), { method: "GET" }).then(parseTransformItem),
+  create: (paleta) => fetch(Api.createPaleta(), { method: "POST", body: JSON.stringify(paleta), mode: "cors", headers: {
+    "Content-Type": "application/json",
+  } }).then(parseTransformItem),
   updateById: (id) =>
     fetch(Api.updateJogoById(id), { method: "PUT" }).then(parseResponse),
   deleteById: (id) =>

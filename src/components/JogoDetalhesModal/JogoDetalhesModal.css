@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+.JogoDetalhesModal {
+    font-family: "Oswald";
+    padding: 10px 0px 10px 10px;
+    max-height: 350px;
+    box-sizing: border-box;
+    width: 315px;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+  }
+  
+  .JogoDetalhesModal > div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background: rgba(87, 2, 145, 0.555);
+    padding: 10px 0px 10px 10px;
+  }
+  
+  .JogoDetalhesModal__titulo {
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 100%;
+  }
+  
+  .JogoDetalhesModal__descricao {
+    font-size: 0.6em;
+    letter-spacing: 0.2em;
+  }
+  
+  .JogoDetalhesModal__preco {
+    color: rgb(177, 14, 82);
+    font-size: 1.5em;
+  }
+  
+  .JogoDetalhesModal__foto {
+    display: flex;
+    height: 200px;
+    width: 200px;
+    z-index: 0;
+  }
+  
+  @media (max-width: 400px) {
+    .JogoDetalhesModal {
+      width: 210px;
+      height: 100vh;
+    }
+  
+    .JogoDetalhesModal__foto {
+      height: 250px;
+      margin-top: 50px;
+      margin-right: 200px;
+    }
+  
+    .JogoDetalhesModal__preco {
+      font-size: 1em;
+    }
+  
+    .JogoDetalhesModal__titulo {
+      font-size: 1.5em;
+    }
+  
+    .JogoDetalhesModal__descricao {
+      font-size: 0.9em;
+    }
+  }

@@ -1,0 +1,48 @@
+.Modal {
+  padding: 30px 80px 20px 20px;
+  min-width: 300px;
+  min-height: 200px;
+  max-width: 700px;
+  max-height: 450px;
+  background-image: url("https://blog.nubank.com.br/wp-content/uploads/2022/01/Nubank-Hype-Games-igor-karimov-unsplash-HEADER.jpg?w=1024");
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+}
+
+.Modal__close {
+  font-size: 2em;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  color: white;
+  transition: all 1s;
+  z-index: 1;
+}
+
+.Modal__close:hover {
+  transform: scale(1.2) 
+}
+
+.Modal__body {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 400px) {
+  .Modal {
+    padding: 15px 70px 15px 15px;
+  }
+}

@@ -1,8 +1,12 @@
 import { JogoService } from "services/JogoService";
 import { useState, useEffect } from "react";
 import JogoListaItem from "components/JogoListaItem/JogoListaItem";
+import "../JogoLista/JogoLista.css";
+import JogoDetalhesModal from "components/JogoDetalhesModal/JogoDetalhesModal";
 
-function JogoLista() {
+function JogoLista(jogoCriada ) {
+  const [jogoModal, setJogoModal] = useState(false);
+
   const [jogos, setJogos] = useState([]);
 
   const [jogoSelecionado, setjogoSelecionado] = useState({});
@@ -21,7 +25,16 @@ function JogoLista() {
     const response = await JogoService.getLista();
     setJogos(response);
   };
-  
+
+  const adicionaJogoNaLista = (jogo) => {
+    const lista = [...jogos, jogo];
+    setJogos(lista);
+};
+
+useEffect(() => {
+    if (jogoCriada) adicionaJogoNaLista(jogoCriada);
+}, [jogoCriada]);
+
   useEffect(() => {
     getLista();
   }, []);
@@ -36,8 +49,15 @@ function JogoLista() {
           index={index}
           onRemove={(index) => removerItem(index)}
           onAdd={(index) => adicionarItem(index)}
+          clickItem={(jogoId) => setJogoModal(jogo)}
         />
       ))}
+      {jogoModal && (
+        <JogoDetalhesModal
+          jogo={jogoModal}
+          closeModal={() => setJogoModal(false)}
+        />
+      )}
     </div>
   );
 }

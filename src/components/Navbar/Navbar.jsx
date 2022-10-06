@@ -1,8 +1,9 @@
 import "./Navbar.css";
 import carrinho from "assets/icons/carrinho.png";
 import logo from "assets/logo.png";
+import plus from "assets/icons/plus.png"
 
-function Navbar() {
+function Navbar({ createJogo }) {
   return (
     <div className="Home__header Header">
       <div className="row">
@@ -16,6 +17,10 @@ function Navbar() {
           <span className="Logo__titulo"></span>
         </div>
         <div className="Header__opcoes Opcoes">
+        <button type="button" className="Opcoes__jogo Plus" onClick={() => createJogo() }>
+                        <img src={plus} width="30px" className="Plus__icone" alt="Adiconar jogo" />
+                    </button>
+
           <div className="Opcoes__sacola Sacola">
             <img
               src={carrinho}
