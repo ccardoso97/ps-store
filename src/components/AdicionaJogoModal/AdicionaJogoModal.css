@@ -1,75 +1,73 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
 .AdicionaJogoModal {
-    font-family: "Oswald";
-    border-radius: 10px;
-    max-height: 350px;
-    box-sizing: border-box;
-    width: 325px;
-    display: flex;
-    position: relative;
-    transform: translateY(-15px);
-    margin-right: -45px;
-    color: rgb(0, 0, 0);
-    font-weight: bolder;
-    
-    
-  }
-  
-  .AdicionaJogoModal form div {
-    display: flex;
-    margin: 15px 0;
-  }
-  
-  .AdicionaJogoModal form {
-    width: 100%;
-  }
-  
-  .AdicionaJogoModal div input {
-    border: none;
-    background: rgb(230, 22, 143);
-    width: 100%;
-    margin-left: 15px;
-    border-radius: 5px;
-    height: 20px;
-    padding: 2px 10px;
-  }
-  
-  .AdicionaJogoModal__text {
-    font-size: 1.5em;
-    line-height: 100%;
-    background-color: rgb(230, 22, 143);
-    border-radius: 5px;
-    width: auto;
-    height: 28px;
-  }
-  
-  .AdicionaJogoModal__foto-label {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    background: rgba(221, 54, 185, 0.753);
-    border-radius: 5px;
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    padding: 5px 10px;
-  }
-  
-  .AdicionaJogoModal__foto {
-    display: none;
-  }
-  
-  .AdicionaJogoModal__enviar {
-    background-color: rgba(221, 54, 185, 0.753);
-    cursor: pointer;
-    color: rgb(0, 0, 0);
-    width: 100%;
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    font-weight: bold;
-  }
-  
-  .AdicionaJogoModal__enviar:disabled {
-    background-color: gray;
-  }
+  font-family: "Oswald";
+  border-radius: 10px;
+  max-height: 350px;
+  box-sizing: border-box;
+  width: 325px;
+  display: flex;
+  position: relative;
+  transform: translateY(-15px);
+  margin-right: -45px;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+}
+
+.AdicionaJogoModal form div {
+  display: flex;
+  margin: 15px 0;
+}
+
+.AdicionaJogoModal form {
+  width: 100%;
+}
+
+.AdicionaJogoModal div input {
+  border: none;
+  background: rgb(230, 22, 143);
+  width: 100%;
+  margin-left: 15px;
+  border-radius: 5px;
+  height: 20px;
+  padding: 2px 10px;
+}
+
+.AdicionaJogoModal__text {
+  font-size: 1.5em;
+  line-height: 100%;
+  background-color: rgb(230, 22, 143);
+  border-radius: 5px;
+  width: auto;
+  height: 28px;
+}
+
+.AdicionaJogoModal__foto-label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: rgba(221, 54, 185, 0.753);
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.AdicionaJogoModal__foto {
+  display: none;
+}
+
+.AdicionaJogoModal__enviar {
+  background-color: rgba(221, 54, 185, 0.753);
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.AdicionaJogoModal__enviar:disabled {
+  background-color: gray;
+}

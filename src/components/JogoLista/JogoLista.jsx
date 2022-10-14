@@ -31,7 +31,6 @@ function JogoLista(jogoCriado) {
   }, []);
 
 
-
   return (
     <div className="JogoLista">
       {jogos.map((jogo, index) => (
