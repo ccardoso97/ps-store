@@ -8,6 +8,6 @@ const JogoContext = {
   };
   
   export const Api = {
-    baseUrl: "http://localhost:3001/jogos",
+    baseUrl: "http://localhost:3001",
     ...JogoContext,
   };
