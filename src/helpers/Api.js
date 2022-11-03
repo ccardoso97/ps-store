@@ -1,5 +1,5 @@
 const JogoContext = {
-    jogoEndpoint: () => `${Api.baseUrl}/jogos`,
+    jogoEndpoint: () => `${Api.baseUrl}`,
     jogoLista: () => `${Api.baseUrl}/all-jogos`,
     jogoByID: (id) => `${Api.baseUrl}/one-jogo/${id}`,
     createJogo: () => `${Api.baseUrl}/create-jogo`,
@@ -8,6 +8,6 @@ const JogoContext = {
   };
   
   export const Api = {
-    baseUrl: "http://localhost:3001/jogos",
+    baseUrl: "https://api-pstore-caio.herokuapp.com/jogos",
     ...JogoContext,
   };
