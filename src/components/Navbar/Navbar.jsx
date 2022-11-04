@@ -1,9 +1,11 @@
 import "./Navbar.css";
+import { ActionMode } from "constants/index";
 import carrinho from "assets/icons/carrinho.png";
 import logo from "assets/logo.png";
-import plus from "assets/icons/plus.png"
+import plus from "assets/icons/plus.png";
+import atualizar from "assets/icons/update.png";
 
-function Navbar({ createJogo }) {
+function Navbar({ createJogo, updateJogo, mode }) {
   return (
     <div className="Home__header Header">
       <div className="row">
@@ -17,9 +19,32 @@ function Navbar({ createJogo }) {
           <span className="Logo__titulo"></span>
         </div>
         <div className="Header__opcoes Opcoes">
-        <button type="button" className="Opcoes__jogo Plus" onClick={() => createJogo() }>
-                        <img src={plus} width="30px" className="Plus__icone" alt="Adiconar jogo" />
-                    </button>
+          <button
+            type="button"
+            className={`Opcoes__jogo Plus ${
+              mode === ActionMode.ATUALIZAR && "Jogo--ativo"
+            }`}
+            onClick={() => updateJogo()}
+          >
+            <img
+              src={atualizar}
+              width="30px"
+              className="Plus__icone"
+              alt="Editar jogo"
+            />
+          </button>
+          <button
+            type="button"
+            className="Opcoes__jogo Plus"
+            onClick={() => createJogo()}
+          >
+            <img
+              src={plus}
+              width="30px"
+              className="Plus__icone"
+              alt="Adiconar jogo"
+            />
+          </button>
 
           <div className="Opcoes__sacola Sacola">
             <img

@@ -1,9 +1,9 @@
-import "./AdicionaJogoModal.css";
+import "./AdicionaEditaJogoModal.css";
 import { useState, useEffect } from "react";
 import Modal from "components/Modal/Modal";
 import { JogoService } from "services/JogoService";
 
-function AdicionaJogoModal({ closeModal, onCreateJogo }) {
+function AdicionaEditaJogoModal({ closeModal, onCreateJogo }) {
   const form = {
     titulo: "",
     genero: "",
@@ -162,4 +162,4 @@ function AdicionaJogoModal({ closeModal, onCreateJogo }) {
   );
 }
 
-export default AdicionaJogoModal;
+export default AdicionaEditaJogoModal;

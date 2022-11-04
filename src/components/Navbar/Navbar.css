@@ -18,6 +18,7 @@
   width: 0px;
   height: 100px;
   cursor: pointer;
+
 }
 .Logo__icone {
   width: 350px;
@@ -26,6 +27,7 @@
   left: 455px;
   top: 10px;
 }
+
 
 .Sacola {
   position: relative;
@@ -85,8 +87,20 @@
   background: none;
   border: none;
   display: flex;
+  
+  transform: translateY(-3px);
+  border-radius: 10px;
+  transition: all .5s;
+  padding: 0;
 }
 
 .Plus__icone {
   cursor: pointer;
+  
+  transform: translateY(3px);
+}
+
+.Jogo--ativo {
+  background: #B92376;
+  height: 36px;
 }
