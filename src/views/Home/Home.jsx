@@ -6,6 +6,7 @@ import { useState } from "react";
 import { ActionMode } from "constants/index";
 
 function Home() {
+
   const [canShowAdicionaJogoModal, setCanShowAdicionaJogoModal] =
     useState(false);
   const [jogoParaAdicionar, setJogoParaAdicionar] = useState();
@@ -14,6 +15,21 @@ function Home() {
     const novaAcao = modoAtual === action ? ActionMode.NORMAL : action;
     setModoAtual(novaAcao);
   };
+  const handleCloseModal = () => {
+    setCanShowAdicionaJogoModal(false);
+    setJogoParaAdicionar();
+    setJogoParaDeletar();
+    setJogoParaEditar();
+  }
+  const [jogoParaEditar, setJogoParaEditar] = useState();
+  const [jogoParaDeletar, setJogoParaDeletar] = useState();
+  const handleDeleteJogo = (jogoToDelete) => {
+    setJogoParaDeletar(jogoToDelete);
+  }
+  const handleUpdateJogo = (jogoToUpdate) => {
+    setJogoParaEditar(jogoToUpdate);
+    setCanShowAdicionaJogoModal(true);
+  }
   return (
     <div className="Home">
       <Navbar
@@ -22,11 +38,17 @@ function Home() {
         updateJogo={() => handleActions(ActionMode.ATUALIZAR)}
       />
       <div className="Home__container">
-        <JogoLista jogoCriado={jogoParaAdicionar} />
+        <JogoLista
+          mode={modoAtual}
+          jogoCriado = {jogoParaAdicionar}
+          deleteJogo={handleDeleteJogo}
+          updateJogo={handleUpdateJogo}/>
         {canShowAdicionaJogoModal && (
           <AdicionaEditaJogoModal
-            closeModal={() => setCanShowAdicionaJogoModal(false)}
-            onCreateJogo={(jogo) => setJogoParaAdicionar(jogo)}
+          mode={modoAtual}
+          jogoToUpdate={jogoParaEditar}
+          closeModal={handleCloseModal}
+          onCreateJogo={(jogo) => setJogoParaAdicionar(jogo)}
           />
         )}
       </div>

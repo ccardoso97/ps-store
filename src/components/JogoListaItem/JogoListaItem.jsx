@@ -1,4 +1,5 @@
 import "./JogoListaItem.css";
+import { ActionMode } from "constants/index";
 
 function JogoListaItem({
   jogo,
@@ -7,8 +8,9 @@ function JogoListaItem({
   onRemove,
   onAdd,
   clickItem,
+  mode
 }) {
-  const badgeCounter = (canRender, index) =>
+  const badgeCounter = (canRender) =>
     Boolean(canRender) && (
       <span className="JogoListaItem__badge"> {quantidadeSelecionada} </span>
     );
@@ -27,11 +29,11 @@ function JogoListaItem({
     );
 
   return (
-    <div className="JogoListaItem" onClick={() => clickItem(jogo.id)}>
-      {badgeCounter(quantidadeSelecionada, index)}
+    <div className={`JogoListaItem`} onClick={() => clickItem(jogo.id)}>
+      {badgeCounter (quantidadeSelecionada, index)}
       <div>
         <div className="JogoListaItem__titulo">{jogo.titulo}</div>
-        <div className="JogoListaItem__preco">R${jogo.preco.toFixed(2)}</div>
+        <div className="JogoListaItem__preco">R${jogo.preco}</div>
         <img
           className="JogoListaItem__foto"
           src={jogo.foto}

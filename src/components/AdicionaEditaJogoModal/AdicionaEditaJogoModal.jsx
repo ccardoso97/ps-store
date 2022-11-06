@@ -2,15 +2,22 @@ import "./AdicionaEditaJogoModal.css";
 import { useState, useEffect } from "react";
 import Modal from "components/Modal/Modal";
 import { JogoService } from "services/JogoService";
+import { ActionMode } from "constants/index";
 
-function AdicionaEditaJogoModal({ closeModal, onCreateJogo }) {
+function AdicionaEditaJogoModal({
+  closeModal,
+  onCreateJogo,
+  mode,
+  jogoToUpdate,
+  onUpdateJogo,
+}) {
   const form = {
-    titulo: "",
-    genero: "",
-    descricao: "",
-    foto: "",
-    distribuidora: "",
-    preco: "",
+    titulo: jogoToUpdate?.titulo ?? "",
+    genero: jogoToUpdate?.genero ?? "",
+    descricao: jogoToUpdate?.descricao ?? "",
+    foto: jogoToUpdate?.foto ?? "",
+    distribuidora: jogoToUpdate?.distribuidora ?? "",
+    preco: jogoToUpdate?.preco ?? "",
   };
   const [state, setState] = useState(form);
 
@@ -27,7 +34,8 @@ function AdicionaEditaJogoModal({ closeModal, onCreateJogo }) {
         state.descricao.length &&
         state.foto.length &&
         state.distribuidora.length &&
-        state.preco.length
+        state.preco.length &&
+        String(state.preco).length
     );
 
     setCanDisable(response);
@@ -36,7 +44,7 @@ function AdicionaEditaJogoModal({ closeModal, onCreateJogo }) {
     canDisableSendButton();
   });
 
-  const createJogo = async () => {
+  const handleSend = async () => {
     const renomeiaCaminhoFoto = (fotoPath) => fotoPath.split("\\").pop();
 
     const { titulo, descricao, preco, foto, genero, distribuidora } = state;
@@ -50,8 +58,31 @@ function AdicionaEditaJogoModal({ closeModal, onCreateJogo }) {
       distribuidora,
     };
 
-    const response = await JogoService.create(jogo);
-    onCreateJogo(response);
+    const serviceCall = {
+      [ActionMode.NORMAL]: () => JogoService.create(jogo),
+      [ActionMode.ATUALIZAR]: () =>
+        JogoService.updateById(jogoToUpdate?.id, jogo),
+    };
+
+    const response = await serviceCall[mode]();
+
+    const actionResponse = {
+      [ActionMode.NORMAL]: () => onCreateJogo(response),
+      [ActionMode.ATUALIZAR]: () => onUpdateJogo(response),
+    };
+
+    actionResponse[mode]();
+
+    const reset = {
+      titulo: "",
+      descricao: "",
+      preco: "",
+      foto: "",
+      genero: "",
+      distribuidora: "",
+    };
+
+    setState(reset);
     closeModal();
   };
 
@@ -59,7 +90,11 @@ function AdicionaEditaJogoModal({ closeModal, onCreateJogo }) {
     <Modal closeModal={closeModal}>
       <div className="AdicionaJogoModal">
         <form autocomplete="off">
-          <h2> Adicionar ao Catálogo </h2>
+          <h2>
+            {" "}
+            {ActionMode.ATUALIZAR === mode ? "Atualizar" : "Adicionar ao"}{" "}
+            Catálogo{" "}
+          </h2>
           <div>
             <label className="AdicionaJogoModal__text" htmlFor="preco">
               {" "}
@@ -142,7 +177,6 @@ function AdicionaEditaJogoModal({ closeModal, onCreateJogo }) {
               id="foto"
               type="file"
               accept="image/png, image/gif, image/jpeg"
-              value={state.foto}
               onChange={(e) => handleChange(e, "foto")}
               required
             />
@@ -152,8 +186,9 @@ function AdicionaEditaJogoModal({ closeModal, onCreateJogo }) {
             className="AdicionaJogoModal__enviar"
             type="button"
             disabled={canDisable}
-            onClick={createJogo}
+            onClick={handleSend}
           >
+            {ActionMode.NORMAL === mode ? "Enviar" : "Atualizar"}
             Enviar
           </button>
         </form>

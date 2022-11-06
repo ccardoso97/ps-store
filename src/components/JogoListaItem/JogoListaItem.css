@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  transition: all 0.5s;
 }
 .JogoListaItem:hover {
   transform: scale(1.1) 
@@ -19,11 +20,45 @@
     height: 180px;
   }
 }
+.JogoListaItem--disable {
+  box-shadow: 0px 0px 7px rgba(148, 0, 211);
+}
+
+.JogoListaItem--disable,
+.JogoListaItem--disable .JogoListaItem__preco {
+  color: gray;
+}
+
+.JogoListaItem--disable .JogoListaItem__badge {
+  display: none;
+}
+
+.JogoListaItem--disable img {
+  filter: grayscale(100%);
+}
+
+.JogoListaItem--disable button:disabled {
+  background-color: gray;
+}
+
+.JogoListaItem__tag {
+  background-color: #c31e87 !important;
+  color: white !important;
+  position: absolute;
+  font-size: 0.6em;
+  border-radius: 5px;
+  padding: 5px;
+  top: -15px;
+  left: -10px;
+  letter-spacing: 1px;
+}
+
 
 .JogoListaItem > div {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  width: 100%;
 }
 
 .JogoListaItem__titulo {
@@ -39,6 +74,7 @@
   text-align: justify;
   justify-content: space-between;
   padding: 8px;
+  width: 100%;
 }
 
 .JogoListaItem__preco {
